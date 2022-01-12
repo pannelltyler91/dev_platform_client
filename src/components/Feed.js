@@ -1,16 +1,12 @@
 import { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
-import Navbar from "react-bootstrap/Navbar"
-import Nav from "react-bootstrap/Nav"
-// import Button from "react-bootstrap/Button";
-import { NavLink, Redirect } from "react-router-dom";
-// import "../styles/Feed.css";
-import GitHubPic from "../images/GitHub-logo.png";
-import linkedinLogo from "../images/linkedin_logo.png"
-import portfolioIcon from "../images/portfolio_icon.png"
-import "../styles/Feed2.css";
+import Button from "react-bootstrap/Button";
+import { NavLink,Redirect } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import "../styles/Feed.css";
 
 class Feed extends Component {
   constructor() {
@@ -19,11 +15,13 @@ class Feed extends Component {
       matchedUsers: [],
       userId: "",
       profileLink: "",
-      created: false
+      created:false,
+      spinner: ''
     };
   }
 
   componentDidMount = () => {
+    this.setState({ spinner: <Spinner animation="border" variant="info" /> })
     fetch(
       `http://localhost:3001/user/${localStorage.getItem(
         "username"
@@ -32,6 +30,7 @@ class Feed extends Component {
       .then((res) => res.json())
       .then((data) => {
         //console.log(data.matchedUsers);
+        this.setState({ spinner: ''})
         this.setState({ matchedUsers: data.matchedUsers });
         this.setState({ userId: data.userId });
         this.setState({ profileLink: `/profile/${this.state.userId}` })
@@ -56,16 +55,14 @@ class Feed extends Component {
       },
       body: JSON.stringify(data),
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data.message, data.created);
-        if (data.created) {
-          this.setState({ created: true })
 
-        }
-
-      })
-
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data.message,data.created);
+      if(data.created){
+        this.setState({created:true})  
+      }
+    })
 
   };
 
@@ -100,7 +97,7 @@ class Feed extends Component {
 
         <div className="mainHeading"><span id="DEVTitle">Dev</span><span id="PlatformTitle">Platform</span></div>
 
-        <CardGroup className="Cards">
+        <Card.Group className="Cards">
           {this.state.matchedUsers.map((user) => {
             const [firstElement, secondElement, thirdElement] =
               user.currentLanguages;
@@ -121,11 +118,11 @@ class Feed extends Component {
                   {/* User social profiles */}
                   <div className="card_social_links">
                     {/* User Github Link */}
-                    <a className="text-end" rel="noreferrer" target="_blank" href={user.github}>  <img src={GitHubPic} /> </a>
+                    <a className="text-end" rel="noreferrer" target="_blank" href={user.github}>  </a>
                     {/* User LinkedIn link */}
-                    <a className="text-end" rel="noreferrer" target="_blank" href={user.linkedin}>  <img src={linkedinLogo} /> </a>
+                    <a className="text-end" rel="noreferrer" target="_blank" href={user.linkedin}>  </a>
                     {/* User Portfolio Link */}
-                    <a className="text-end" rel="noreferrer" target="_blank" href={user.portfolio}>  <img src={portfolioIcon} />  </a>
+                    <a className="text-end" rel="noreferrer" target="_blank" href={user.portfolio}> </a>
                   </div>
 
                   {/* <img src={user.pic} /> */}
@@ -161,13 +158,13 @@ class Feed extends Component {
 
 
 
-                <button
+                <Button
                   id={user.id}
 
                   onClick={this._handleInitiateChat}
                 >
                   Chat
-                </button>
+                </Button>
 
                 {/* <p className="body-text">
                     <i>{user.banner}</i>
@@ -233,7 +230,7 @@ class Feed extends Component {
             );
           })}
 
-        </CardGroup>
+        </Card.Group>
         {/* </Container> */}
       </div>
     );

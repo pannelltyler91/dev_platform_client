@@ -47,7 +47,7 @@
 #card-banner{
     background-color: #fae596;
     margin-top: 1.75em;
-    margin-bottom: 1.75em;
+    /* margin-bottom: 1.75em; */
     padding: 0.5em;
 }
 
@@ -79,7 +79,6 @@
             font-size: 1.15em;
         }
         #card-banner{
-            /* margin-left: 1.6em; */
             margin-left: 8vw;
         }
         .formTxtArea {
@@ -131,9 +130,9 @@
         .languagesSection {
             font-size: 1.33em;
         }
-        #card-banner{
+        /* #card-banner{
             height: 66vh;
-        }
+        } */
         .formTxtArea {
             height: 45vh;
         }
@@ -151,9 +150,9 @@
         .languagesSection {
             font-size: 1.25em;
         }
-        #card-banner{
+        /* #card-banner{
             height: 33vh;
-        }
+        } */
         .formTxtArea {
             height: 25vh;
         }
@@ -187,9 +186,9 @@
         .languagesSection {
             font-size: 1.42em;
         }
-        #card-banner{
+        /* #card-banner{
             height: 29vh;
-        }
+        } */
         .formTxtArea {
             height: 23vh;
         }
@@ -227,9 +226,9 @@
     .languagesSection {
         font-size: 1.5em;
     }
-    #card-banner{
+   /*  #card-banner{
         height: 52vh;
-    }
+    } */
     .formTxtArea {
         height: 38vh;
     }
