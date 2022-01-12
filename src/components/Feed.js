@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { NavLink,Redirect } from "react-router-dom";
+import Spinner from 'react-bootstrap/Spinner';
 import "../styles/Feed.css";
 
 class Feed extends Component {
@@ -12,11 +13,13 @@ class Feed extends Component {
       matchedUsers: [],
       userId: "",
       profileLink: "",
-      created:false
+      created:false,
+      spinner: ''
     };
   }
 
   componentDidMount = () => {
+    this.setState({ spinner: <Spinner animation="border" variant="info" /> })
     fetch(
       `http://localhost:3001/user/${localStorage.getItem(
         "username"
@@ -25,6 +28,7 @@ class Feed extends Component {
       .then((res) => res.json())
       .then((data) => {
         //console.log(data.matchedUsers);
+        this.setState({ spinner: ''})
         this.setState({ matchedUsers: data.matchedUsers });
         this.setState({userId: data.userId});
         this.setState({profileLink: `/profile/${this.state.userId}`})
@@ -42,24 +46,20 @@ class Feed extends Component {
     localStorage.getItem('otherUser')
     localStorage.getItem('currentUser')
 
-fetch('http://localhost:3001/chat/create', {
-  method: 'POST', // or 'PUT'
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-.then(response => response.json())
-.then(data => {
-  console.log('Success:', data.message,data.created);
-  if(data.created){
-    this.setState({created:true})
-    
-  }
-  
-})
-
-    
+    fetch('http://localhost:3001/chat/create', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data.message,data.created);
+      if(data.created){
+        this.setState({created:true})  
+      }
+    })
   };
 
   render() {
@@ -72,6 +72,7 @@ fetch('http://localhost:3001/chat/create', {
           <NavLink id="profileLink" to={this.state.profileLink}>
             My Profile
           </NavLink>
+          <div className="">{this.state.spinner}</div>
           <NavLink id="profileLink" to="/profile">
             Near Me
           </NavLink>
