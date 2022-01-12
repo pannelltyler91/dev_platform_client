@@ -115,7 +115,7 @@ class Myprofile extends Component {
         
           <Row>
             <Col xs={12} md={5} >
-              <div class="picNameLangContainer">
+              <div className="picNameLangContainer">
                 <img src={this.state.userPic} alt="user profile pic" id="profilePic" />
                 <div id="userName">{this.state.user.username}</div>
                 <div className="languagesSection mt-3">
