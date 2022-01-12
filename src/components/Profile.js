@@ -125,7 +125,6 @@ class Myprofile extends Component {
                   <div className="languages">{this.state.languages[2]}</div>
                 </div>
               </div>
-            </div>
           </Col>
           
           <Col xs={11} md={6}>
