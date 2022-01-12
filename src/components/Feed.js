@@ -102,8 +102,8 @@ class Feed extends Component {
             const [firstElement, secondElement, thirdElement] = user.currentLanguages;
             const [firstIndex, secondIndex, thirdIndex] = user.newLanguages;
             return (
-              <div key={user.id} className="card" >
-                <div className="yell-back text-center card_header " as="h4">
+              <Card key={user.id} className="card" >
+                <div className="yell-back text-center card_header" as="h4">
                   <div className="username">{user.username}{" "}</div>
 
                   <div className="card_social_links">
@@ -133,7 +133,7 @@ class Feed extends Component {
                 </div>
 
                 <Button id={user.id} onClick={this._handleInitiateChat}>Chat</Button>
-              </div>
+              </Card>
             );
           })}
         </Card>
