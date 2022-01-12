@@ -10,10 +10,10 @@
 #button {
   color: #3FB0AC;
 }
-#profileLink {
+.profileLink {
   color: #3FB0AC;
 }
-#menuBar {
+.menuBar {
   display: flex;
   justify-content: space-around;
   position: sticky;
@@ -24,4 +24,25 @@
 }
 .yell-back{
     background-color: #fae596;
+}
+
+.Card{ 
+  margin: 15px;
+}
+
+.card_social_links{ 
+  display: "flex"; 
+  justify-content: "space-around";
+} 
+
+.Card_Body{ 
+  background-color: "#dddfd4"
+}
+
+.card-header{ 
+  background-color: #fae596;
+}
+
+.body-text{ 
+  color: "#3FB0AC" 
 }
