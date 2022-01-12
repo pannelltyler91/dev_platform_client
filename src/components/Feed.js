@@ -97,41 +97,24 @@ class Feed extends Component {
 
         <div className="mainHeading"><span id="DEVTitle">Dev</span><span id="PlatformTitle">Platform</span></div>
 
-        <Card.Group className="Cards">
+        <Card className="Cards">
           {this.state.matchedUsers.map((user) => {
-            const [firstElement, secondElement, thirdElement] =
-              user.currentLanguages;
+            const [firstElement, secondElement, thirdElement] = user.currentLanguages;
             const [firstIndex, secondIndex, thirdIndex] = user.newLanguages;
             return (
-
-              <div key={user.id} className="Card" >
-
-                {/* User id */}
+              <div key={user.id} className="card" >
                 <div className="yell-back text-center card_header " as="h4">
-                  {/* {" "} */}
+                  <div className="username">{user.username}{" "}</div>
 
-                  <div className="username">
-                    {user.username}{" "}
-                  </div>
-
-                  {/* <div className="yell-back "> */}
-                  {/* User social profiles */}
                   <div className="card_social_links">
-                    {/* User Github Link */}
                     <a className="text-end" rel="noreferrer" target="_blank" href={user.github}>  </a>
-                    {/* User LinkedIn link */}
                     <a className="text-end" rel="noreferrer" target="_blank" href={user.linkedin}>  </a>
-                    {/* User Portfolio Link */}
                     <a className="text-end" rel="noreferrer" target="_blank" href={user.portfolio}> </a>
                   </div>
 
-                  {/* <img src={user.pic} /> */}
                 </div>
 
-                <div className="Card_Body language_info">
-
-                  {/* <div className="language_info" > */}
-                  {/* Known user languages */}
+                <div className="card_body language_info">
                   <ul className="body-text my-language">
                     <div className="language_title"> My Languages: </div>
                     <li> {firstElement} </li>
@@ -139,7 +122,6 @@ class Feed extends Component {
                     <li> {thirdElement} </li>
                   </ul>
 
-                  {/* Languages User wants to learn */}
                   <ul className="body-text curious-language ">
                     <div className="language_title"> Languages I want to Learn: </div>
 
@@ -147,91 +129,14 @@ class Feed extends Component {
                     <li> {secondIndex} </li>
                     <li> {thirdIndex} </li>
                   </ul>
-                  {/* </div> */}
-
-
 
                 </div>
 
-
-
-
-
-
-                <Button
-                  id={user.id}
-
-                  onClick={this._handleInitiateChat}
-                >
-                  Chat
-                </Button>
-
-                {/* <p className="body-text">
-                    <i>{user.banner}</i>
-                  </p> */}
+                <Button id={user.id} onClick={this._handleInitiateChat}>Chat</Button>
               </div>
-              // </div>
-
-
-
-
-              // <Card key={user.id} className="Card" >
-              //   <Card.Header
-              //   // className="yell-back"
-              //   >
-              //     {" "}
-
-              //     <Card.Title as="h4" className="text-center">
-              //       {user.username}{" "}
-              //     </Card.Title>
-              //   </Card.Header>
-              //   <Card.Body className="Card_Body">
-              //     <Card.Subtitle className="body-text">
-              //       My Languages:
-              //     </Card.Subtitle>
-              //     <Card.Text className="body-text">
-              //       {firstElement}, {secondElement}, {thirdElement}
-              //     </Card.Text>
-              //     <Card.Subtitle className="body-text">
-              //       Languages I want to Learn:
-              //     </Card.Subtitle>
-              //     <Card.Text className="body-text">
-              //       {firstIndex}, {secondIndex}, {thirdIndex}
-              //     </Card.Text>
-
-              //     <Card.Footer
-              //       className="yell-back"
-              //     >
-              //       {/* User social profiles */}
-              //       <div className="card_social_links">
-              //         {/* User Github Link */}
-              //         <Card.Link className="text-end" rel="noreferrer" target="_blank" href={user.github}>  <img src={GitHubPic} /> </Card.Link>
-              //         {/* User LinkedIn link */}
-              //         <Card.Link className="text-end" rel="noreferrer" target="_blank" href={user.linkedin}>  <img src={linkedinLogo} /> </Card.Link>
-              //         {/* User Portfolio Link */}
-              //         <Card.Link className="text-end" rel="noreferrer" target="_blank" href={user.portfolio}>  Portfolio </Card.Link>
-              //       </div>
-
-              //       <p className="body-text">
-              //         <i>{user.banner}</i>
-              //       </p>
-
-
-              //     </Card.Footer>
-              //   </Card.Body>
-              //   <Button
-              //     id={user.id}
-              //     className="yell-back"
-              //     onClick={this._handleInitiateChat}
-              //   >
-              //     Start Chat
-              //   </Button>
-              // </Card>
             );
           })}
-
-        </Card.Group>
-        {/* </Container> */}
+        </Card>
       </div>
     );
   }
