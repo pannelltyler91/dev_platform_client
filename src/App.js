@@ -9,6 +9,8 @@ import Myprofile from './components/Profile';
 import Feed from './components/Feed';
 import Createprofile from './components/Createprofile';
 import Chat from './components/chat_components/Chat';
+import Inbox from './components/Inbox';
+
 
 
 function App() {  
@@ -21,6 +23,7 @@ function App() {
       <Route  path='/profile/:id' component={Myprofile}/>
       <Route  path='/feed/:id' component={Feed}/>
       <Route  path='/chat' component={Chat}/>
+      <Route  path='/inbox' component={Inbox}/>
       {localStorage.getItem('username') ? <Route path="/create" component={Createprofile} /> : ''}
     </Switch>
   );
