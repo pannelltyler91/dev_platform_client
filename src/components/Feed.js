@@ -48,7 +48,7 @@ class Feed extends Component {
     localStorage.getItem('otherUser')
     localStorage.getItem('currentUser')
 
-    fetch('http://localhost:3001/chat/create', {
+    fetch('http://localhost:3001/chat/create/' + e.target.name, {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ class Feed extends Component {
 
                 </div>
 
-                <Button id={user.id} onClick={this._handleInitiateChat}>Chat</Button>
+                <Button name={user.username} id={user.id} onClick={this._handleInitiateChat}>Chat</Button>
               </Card>
             );
           })}
