@@ -1,0 +1,119 @@
+
+main{ 
+    background: linear-gradient(150deg, rgba(63,176,172,1) 55%, rgba(250,229,150,1) 55%);
+
+}
+
+/* Navbar Links */
+/* .navbar-light .navbar-nav .nav-link {
+    color: #dddfd4 !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #fae596 !important;
+}
+
+/* Navbar Brand */
+.navbar-light .navbar-brand {
+    color: #dddfd4 !important;
+    font-weight: bold;
+} */
+
+.Cards{ 
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    /* background: linear-gradient(150deg, rgba(63,176,172,1) 55%, rgba(250,229,150,1) 55%); */
+    align-content: center;
+    justify-content: space-evenly;
+    width: inherit;
+    height: 85vh;
+    overflow-y: scroll;
+}
+.Card{ 
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 23vw;
+    height: 30vh;
+    background-color: #fae596;
+    margin: 5px;
+    border-radius: .5%;
+    letter-spacing: .15em;
+}
+.card_header{ 
+    width: inherit;
+    height: 20vh;
+    background-color: #414a4a;;
+    font-weight: bolder;
+    font-size: 3vh;
+    color: black;
+    border-radius: .5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center; 
+}
+
+.language_info{ 
+    display: flex;
+    flex-direction: row;
+}
+
+.language_title { 
+    font-size: 1.5vh ;
+    font-weight: 900;
+    
+} 
+.my-language{ 
+    width: calc(inherit/2);
+    background-color:#574f54;
+    height: 100%;
+}
+
+.curious-language{ 
+    width: calc(inherit/2);
+    height: 100%;
+    background-color: #525152;
+}
+.body-text > li { 
+    font-size: 1.5vh ;
+}
+
+.card_social_links > a {
+    text-decoration: none;
+    height: 100vh;
+}
+
+.card_social_links > a :hover { 
+    transform: scale(1.05);
+}
+
+
+
+/* sizing the individual images for the social media links */
+.text-end > img { 
+    width: 1vw;
+    height: 2vh;
+}
+
+/* bootstrap class that was on the social profile links */
+
+
+button { 
+    width: inherit ;
+    height: 15vh;
+    background-color: #dddfd4 !important;
+    border-color: grey !important;
+    color: #414a4a !important;
+    padding: 0.4em !important;
+    letter-spacing: 0.15em !important;
+}
+
+button:hover{ 
+    box-shadow: -3px 3px 15px grey;
+    transform: scale(1.05);
+}

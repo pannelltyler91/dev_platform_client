@@ -9,7 +9,7 @@ import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Login from "./Login";
 import * as BI from "react-icons/bi/";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
 import '../styles/Profile.css'
 
 class Myprofile extends Component {
@@ -125,28 +125,28 @@ class Myprofile extends Component {
                   <div className="languages">{this.state.languages[2]}</div>
                 </div>
               </div>
-            </Col>
-            
-            <Col xs={11} md={6}>
-                <Card id="card-banner">
-                  <Form onSubmit={this._handleBanner}>
-                    <Form.Control
-                      as="textarea"
-                      placeholder="What's on your mind? What do you want to chat about today?"
-                      name="banner"
-                      defaultValue={this.state.bannerMessage}
-                      className="formTxtArea"
-                    />
-                    <Button id="chatBtn" type="submit">
-                      <BI.BiCommentCheck />
-                    </Button>
-                  </Form>
-                </Card>
-            </Col>
-          </Row>
-        </div>
-    );
-  }
+            </div>
+          </Col>
+          
+          <Col xs={11} md={6}>
+              <Card id="card-banner">
+                <Form onSubmit={this._handleBanner}>
+                  <Form.Control
+                    as="textarea"
+                    placeholder="What's on your mind? What do you want to chat about today?"
+                    name="banner"
+                    defaultValue={this.state.bannerMessage}
+                    className="formTxtArea"
+                  />
+                  <Button id="chatBtn" type="submit">
+                    <BI.BiCommentCheck />
+                  </Button>
+                </Form>
+              </Card>
+          </Col>
+        </Row>
+      </div>
+    );}
 }
 
 export default Myprofile;

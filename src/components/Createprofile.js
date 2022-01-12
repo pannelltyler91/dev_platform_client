@@ -4,10 +4,12 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useState } from "react";
-import Known from "./Known";
 import { useHistory } from "react-router-dom";
+import Known from "./Known";
 import Tolearn from "./Tolearn";
 import Links from './Links';
+//import minify from 'url-minify';
+//import { nanoid } from 'nanoid';
 
 const Createprofile = () => {
   const [created, setCreated] = useState(false);
@@ -22,6 +24,8 @@ const Createprofile = () => {
     });
     reader.readAsDataURL(e.target.files[0]);
   };
+
+
 
   const _handleSubmit = (e) => {
     e.preventDefault();
@@ -80,9 +84,8 @@ const Createprofile = () => {
         .then((response) => response.json())
         .then((data) => {
           if (data.update) {
-            //console.log('updated')
             setCreated(true);
-
+            console.log(created);
             let theUserId = data.userId;
             history.push(`/profile/${theUserId}`);
           }
